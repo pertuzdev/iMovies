@@ -1,0 +1,43 @@
+import {StyleSheet} from 'react-native';
+
+export const styles = StyleSheet.create({
+  container: {},
+  wrapper: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  profileWrapper: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    // backgroundColor: 'red',
+  },
+  imgCont: {
+    width: 60,
+    height: 50,
+    justifyContent: 'center',
+    //backgroundColor: 'red',
+  },
+  img: {
+    //width: 200,
+    //height: 200,
+    height: '100%',
+    width: '100%',
+    resizeMode: 'contain',
+    // backgroundColor: 'blue',
+  },
+  txtWrapper: {
+    marginLeft: 8,
+  },
+  searchBar: {
+    marginTop: 14,
+    marginBottom: 14,
+  },
+  btnContainer: {
+    width: 110,
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});
