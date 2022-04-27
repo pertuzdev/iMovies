@@ -1,17 +1,29 @@
 import React from 'react';
 import {View, Text, Pressable, Image} from 'react-native';
 
+import {SearchScreenProps} from '../../screens/SearchScreen';
+
 import {styles} from './styles';
 import {colors, textStyles} from '../../styles/theme';
+
+type CardItemProps = {
+  id: string;
+  title: string;
+  imageURL: string;
+  releaseDate: Date;
+  overview: string;
+  rate: number;
+  navigation?: SearchScreenProps;
+};
 
 export default function CardItem({
   id = '',
   title = '',
   imageURL = '',
-  releaseDate = {},
+  releaseDate,
   overview = '',
   rate = 0,
-}) {
+}: CardItemProps) {
   return (
     <Pressable
       style={[styles.container]}

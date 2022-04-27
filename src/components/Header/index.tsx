@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, Image} from 'react-native';
+import {View, Text, Image, StyleProp, ViewStyle} from 'react-native';
 
 import {styles} from './styles';
 import {textStyles} from '../../styles/theme';
@@ -7,7 +7,12 @@ import {textStyles} from '../../styles/theme';
 import SearchBar from '../SearchBar';
 import Button from '../Button';
 
-export default function Header({style = {}, onSearchBarPress = null}) {
+type HeaderProps = {
+  style?: StyleProp<ViewStyle>;
+  onSearchBarPress: () => void;
+};
+
+export default function Header({style = {}, onSearchBarPress}: HeaderProps) {
   const src = require('../../assets/images/logo.png');
   return (
     <View style={[styles.container, style]}>

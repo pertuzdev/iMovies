@@ -14,8 +14,8 @@ import {colors} from '../../styles/theme';
 
 type SearchBarProps = {
   handleSearch?: (text: string) => void;
-  onPress: ((event: GestureResponderEvent) => void) | null;
-  style: Object;
+  onPress?: ((event: GestureResponderEvent) => void) | null;
+  style?: Object;
   focus?: boolean;
 };
 
