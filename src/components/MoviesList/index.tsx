@@ -21,7 +21,7 @@ export default function MoviesList({movies, loading}: MoviesListProps) {
       {movies.length === 0 ? (
         <View style={styles.noItems}>
           <Text style={[styles.placeholder, textStyles.placeholder]}>
-            No hay productos agregados
+            There are no movies
           </Text>
         </View>
       ) : (

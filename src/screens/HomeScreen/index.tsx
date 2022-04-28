@@ -47,12 +47,11 @@ const MOVIES = [
 
 export default function HomeScreen({navigation}: HomeScreenProps) {
   const {movies, loading} = useMovies();
-  useEffect(() => {
-    getPopularMovies();
-  }, []);
+
   const handleSearchBarPress = () => {
     navigation.navigate('Search');
   };
+
   return (
     <SafeAreaView style={styles.container}>
       <Header style={styles.header} onSearchBarPress={handleSearchBarPress} />
@@ -60,16 +59,6 @@ export default function HomeScreen({navigation}: HomeScreenProps) {
       <View style={styles.content}>
         <MoviesList movies={movies} loading={loading} />
       </View>
-
-      {/*<View style={styles.btnContainer}>
-        <Button
-          size="lg"
-          style={styles.button}
-          navigation={navigation}
-          label="Crear Producto"
-          onPress={handlePress}
-        />
-      </View> */}
     </SafeAreaView>
   );
 }
