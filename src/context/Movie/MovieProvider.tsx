@@ -1,4 +1,4 @@
-import React, {useReducer} from 'react';
+import React, {useReducer, useEffect} from 'react';
 
 import {MovieState} from '../../interfaces/Movie';
 
@@ -19,12 +19,13 @@ type MovieProviderProps = {
 export function MovieProvider({children}: MovieProviderProps) {
   const [movieState, dispatch] = useReducer(popularMoviesReducer, initialState);
 
-  const getPopularMoviesList = () => {
+  useEffect(() => {
+    console.log('useeffect');
     getPopularMovies({dispatch});
-  };
+  }, []);
 
   return (
-    <MovieContext.Provider value={{movieState, getPopularMoviesList}}>
+    <MovieContext.Provider value={{movieState}}>
       {children}
     </MovieContext.Provider>
   );
