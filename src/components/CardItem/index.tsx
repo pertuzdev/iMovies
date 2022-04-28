@@ -1,29 +1,28 @@
 import React from 'react';
 import {View, Text, Pressable, Image} from 'react-native';
 
-import {SearchScreenProps} from '../../screens/SearchScreen';
-
 import {styles} from './styles';
 import {colors, textStyles} from '../../styles/theme';
+import {Movie} from '../../interfaces/Movie';
 
 type CardItemProps = {
-  id: string;
+  id: number;
   title: string;
-  imageURL: string;
-  releaseDate: Date;
+  posterPath: string;
+  releaseDate: string;
   overview: string;
-  rate: number;
-  navigation?: SearchScreenProps;
+  voteAverage: number;
 };
 
 export default function CardItem({
-  id = '',
+  id,
   title = '',
-  imageURL = '',
-  releaseDate,
+  posterPath = '',
+  releaseDate = '',
   overview = '',
-  rate = 0,
+  voteAverage = 0,
 }: CardItemProps) {
+  const imageURL = `https://image.tmdb.org/t/p/w500${posterPath}`;
   return (
     <Pressable
       style={[styles.container]}
@@ -42,7 +41,7 @@ export default function CardItem({
         <View style={styles.txtWrapper}>
           <Text style={textStyles.cardTitle}>{title}</Text>
           <Text style={[styles.cardDescription, textStyles.cardDescription]}>
-            {`Release: ${releaseDate.toLocaleDateString()}`}
+            {`Release: ${releaseDate}`}
           </Text>
           <Text style={[styles.cardDescription, textStyles.cardDescription]}>
             Rating:
@@ -50,7 +49,7 @@ export default function CardItem({
               style={styles.icStar}
               source={require('../../assets/icons/ic_star.png')}
             />
-            {rate}
+            {voteAverage}
           </Text>
           <Text style={[styles.cardDescription, textStyles.cardDescription]}>
             {`${overview.slice(0, 65)}...`}

@@ -9,6 +9,8 @@ import {styles} from './styles';
 
 import Header from '../../components/Header';
 import MoviesList from '../../components/MoviesList';
+import {getPopularMovies} from '../../services/getPopularMovies';
+import {useMovies} from '../../hooks/useMovies';
 
 type HomeScreenProps = StackScreenProps<HomeStackParamList, 'Home'>;
 
@@ -44,6 +46,10 @@ const MOVIES = [
 ];
 
 export default function HomeScreen({navigation}: HomeScreenProps) {
+  const {movies, loading} = useMovies();
+  useEffect(() => {
+    getPopularMovies();
+  }, []);
   const handleSearchBarPress = () => {
     navigation.navigate('Search');
   };
@@ -52,7 +58,7 @@ export default function HomeScreen({navigation}: HomeScreenProps) {
       <Header style={styles.header} onSearchBarPress={handleSearchBarPress} />
 
       <View style={styles.content}>
-        <MoviesList movies={MOVIES} />
+        <MoviesList movies={movies} loading={loading} />
       </View>
 
       {/*<View style={styles.btnContainer}>

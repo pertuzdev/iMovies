@@ -5,16 +5,10 @@ import {styles} from './styles';
 import {textStyles} from '../../styles/theme';
 
 import CardItem from '../CardItem';
+import {Movie} from '../../interfaces/Movie';
 
 export type MoviesListProps = {
-  movies: {
-    id: string;
-    title: string;
-    poster: string;
-    releaseDate: Date;
-    overview: string;
-    rate: number;
-  }[];
+  movies: Movie[];
   loading?: boolean;
 };
 
@@ -38,14 +32,14 @@ export default function MoviesList({movies, loading}: MoviesListProps) {
             <CardItem
               key={item.id}
               id={item.id}
-              title={item.title}
-              imageURL={item.poster}
-              releaseDate={item.releaseDate}
+              title={item.original_title}
+              posterPath={item.poster_path}
+              releaseDate={item.release_date}
               overview={item.overview}
-              rate={item.rate}
+              voteAverage={item.vote_average}
             />
           )}
-          keyExtractor={item => item.id}
+          keyExtractor={item => item.id.toString()}
         />
       )}
     </>
