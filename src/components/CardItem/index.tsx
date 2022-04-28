@@ -1,9 +1,11 @@
 import React from 'react';
 import {View, Text, Pressable, Image} from 'react-native';
 
+import {HomeStackNavigationProps} from '../../navigation/HomeStack.types';
+
 import {styles} from './styles';
 import {colors, textStyles} from '../../styles/theme';
-import {Movie} from '../../interfaces/Movie';
+import {useNavigation} from '@react-navigation/native';
 
 type CardItemProps = {
   id: number;
@@ -22,11 +24,19 @@ export default function CardItem({
   overview = '',
   voteAverage = 0,
 }: CardItemProps) {
+  const navigation = useNavigation<HomeStackNavigationProps>();
+
   const imageURL = `https://image.tmdb.org/t/p/w500${posterPath}`;
+
+  const handlePress = () => {
+    navigation.navigate('Detail', {id, title});
+  };
+
   return (
     <Pressable
       style={[styles.container]}
-      android_ripple={{color: colors.mediumGray}}>
+      android_ripple={{color: colors.mediumGray}}
+      onPress={handlePress}>
       <View style={[styles.wrapper]}>
         <View style={styles.imgCont}>
           {imageURL ? (

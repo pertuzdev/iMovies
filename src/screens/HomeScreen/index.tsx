@@ -1,20 +1,17 @@
-import React, {useEffect} from 'react';
-import {View, ToastAndroid} from 'react-native';
+import React from 'react';
+import {View} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 
-import type {StackScreenProps} from '@react-navigation/stack';
-import {HomeStackParamList} from '../../navigation/HomeStack';
+import {HomeStackScreenProps} from '../../navigation/HomeStack.types';
+
+import {useMovies} from '../../hooks/useMovies';
 
 import {styles} from './styles';
 
 import Header from '../../components/Header';
 import MoviesList from '../../components/MoviesList';
 
-import {useMovies} from '../../hooks/useMovies';
-
-type HomeScreenProps = StackScreenProps<HomeStackParamList, 'Home'>;
-
-export default function HomeScreen({navigation}: HomeScreenProps) {
+export default function HomeScreen({navigation}: HomeStackScreenProps) {
   const {movies, loading} = useMovies();
 
   const handleSearchBarPress = () => {

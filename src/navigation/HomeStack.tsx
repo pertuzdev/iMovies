@@ -2,13 +2,11 @@ import React from 'react';
 
 import {createStackNavigator} from '@react-navigation/stack';
 
+import {HomeStackParamList} from './HomeStack.types';
+
 import HomeScreen from '../screens/HomeScreen';
 import SearchScreen from '../screens/SearchScreen';
-
-export type HomeStackParamList = {
-  Home: undefined;
-  Search: undefined;
-};
+import DetailScreen from '../screens/DetailScreen';
 
 const Stack = createStackNavigator<HomeStackParamList>();
 
@@ -28,6 +26,12 @@ const HomeStack = () => {
         name="Search"
         component={SearchScreen}
         options={{headerShown: false}}
+      />
+
+      <Stack.Screen
+        name="Detail"
+        component={DetailScreen}
+        options={({route}) => ({title: route.params.title})}
       />
     </Stack.Navigator>
   );
