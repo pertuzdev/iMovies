@@ -22,7 +22,7 @@ export type MovieActionType =
       };
     };
 
-export default function movieReducer(
+export default function popularMovieReducer(
   state: MovieState,
   action: MovieActionType,
 ): MovieState {

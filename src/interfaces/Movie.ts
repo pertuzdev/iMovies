@@ -1,4 +1,4 @@
-export interface MovieAPIResponse {
+export interface MovieListAPIResponse {
   dates?: Dates;
   page: number;
   results: Movie[];
@@ -68,6 +68,12 @@ export interface MovieFull {
   video: boolean;
   vote_average: number;
   vote_count: number;
+}
+
+export interface MovieDetailState {
+  loading: boolean;
+  error: Object | null;
+  movie: MovieFull | Movie | undefined;
 }
 
 export interface Genre {

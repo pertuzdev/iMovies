@@ -1,8 +1,8 @@
-import {MovieAPIResponse} from '../interfaces/Movie';
+import {MovieListAPIResponse} from '../interfaces/Movie';
 import {movieAPI} from './movieAPI';
 
 export const getPopularMovies = async () => {
   return movieAPI
-    .get<MovieAPIResponse>('/popular')
+    .get<MovieListAPIResponse>('/popular')
     .then(res => res.data.results);
 };

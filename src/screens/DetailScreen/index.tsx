@@ -1,7 +1,6 @@
 import React from 'react';
 import {Image, Text, View} from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
-import MoviesList from '../../components/MoviesList';
 
 import {useMovieDetails} from '../../hooks/useMovieDetails';
 import {useMovieRecommendations} from '../../hooks/useMovieRecommendations';
@@ -10,21 +9,30 @@ import {DetailStackScreenProps} from '../../navigation/HomeStack.types';
 
 import {styles} from './styles';
 
+import RecommendationList from '../../components/RecommendationList';
+
 export default function DetailScreen({route}: DetailStackScreenProps) {
   const {id} = route.params;
-  const {movieSummary} = useMovieDetails({id});
-  const {recommendedMovies, loading} = useMovieRecommendations({id});
+  const {movieDetail, loading, error} = useMovieDetails({id});
+  const {recommendedMovies, isRecommendationLoading, recommendationsHasError} =
+    useMovieRecommendations({id});
 
-  if (!movieSummary) {
+  if (loading) {
+    return <Text>Loading...</Text>;
+  }
+
+  if (!movieDetail || error) {
     return (
       <View>
         <Text>We can't find your movie</Text>
+        {error && (
+          <Text>We have an error in this moment. Try again later.</Text>
+        )}
       </View>
     );
   }
 
   const {
-    title,
     poster_path: posterPath,
     release_date: releaseDate,
     overview,
@@ -33,16 +41,24 @@ export default function DetailScreen({route}: DetailStackScreenProps) {
     original_title: originalTitle,
     popularity,
     original_language: originalLanguage,
-  } = movieSummary;
+  } = movieDetail;
 
   const imageURL = `https://image.tmdb.org/t/p/w500${posterPath}`;
 
   const renderRecommendedMovies = () => {
-    if (loading) {
-      return <Text>Cargando...</Text>;
+    if (isRecommendationLoading) {
+      return <Text>Recommendations is loading...</Text>;
     }
 
-    return <MoviesList movies={recommendedMovies} loading={loading} />;
+    if (recommendationsHasError) {
+      return (
+        <Text>
+          We have an error loading your recommendations, try again later.
+        </Text>
+      );
+    }
+
+    return <RecommendationList movies={recommendedMovies} loading={loading} />;
   };
 
   return (

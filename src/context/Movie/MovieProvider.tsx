@@ -3,7 +3,7 @@ import React, {useReducer, useEffect} from 'react';
 import {MovieState} from '../../interfaces/Movie';
 
 import {getPopularMovies} from '../../actions/MovieActions';
-import popularMoviesReducer from '../../reducers/movieReducer';
+import popularMoviesReducer from '../../reducers/popularMovieReducer';
 import {MovieContext} from './MovieContext';
 
 const initialState: MovieState = {

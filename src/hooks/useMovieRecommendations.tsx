@@ -24,7 +24,11 @@ export function useMovieRecommendations({id}: Props) {
     getRecommendations({dispatch, id});
   }, [id]);
 
-  const {movies: recommendedMovies, loading, error} = recommendationsState;
+  const {
+    movies: recommendedMovies,
+    loading: isRecommendationLoading,
+    error: recommendationsHasError,
+  } = recommendationsState;
 
-  return {recommendedMovies, loading, error};
+  return {recommendedMovies, isRecommendationLoading, recommendationsHasError};
 }
