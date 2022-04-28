@@ -32,7 +32,7 @@ export default function MoviesList({movies, loading}: MoviesListProps) {
             <CardItem
               key={item.id}
               id={item.id}
-              title={item.original_title}
+              title={item.title}
               posterPath={item.poster_path}
               releaseDate={item.release_date}
               overview={item.overview}
