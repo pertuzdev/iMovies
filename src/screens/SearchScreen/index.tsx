@@ -2,14 +2,15 @@ import React, {useState} from 'react';
 import {View, Text} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 
-import {styles} from './styles';
-
 import {Movie} from '../../interfaces/Movie';
+import {SearchStackScreenProps} from '../../navigation/HomeStack.types';
+
+import {useMovieResults} from '../../hooks/useMovieResults';
+
+import {styles} from './styles';
 
 import MovieList from '../../components/MoviesList';
 import SearchHeader from '../../components/SearchHeader';
-import {useMovieResults} from '../../hooks/useMovieResults';
-import {SearchStackScreenProps} from '../../navigation/HomeStack.types';
 
 export default function SearchScreen({route}: SearchStackScreenProps) {
   const {query} = route.params;

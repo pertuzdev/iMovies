@@ -2,7 +2,9 @@ import React from 'react';
 import {View, Text} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 
-import {HomeStackScreenProps} from '../../navigation/HomeStack.types';
+import {useState} from 'react';
+
+import {Movie} from '../../interfaces/Movie';
 
 import {useMovies} from '../../hooks/useMovies';
 
@@ -10,16 +12,9 @@ import {styles} from './styles';
 
 import Header from '../../components/Header';
 import MoviesList from '../../components/MoviesList';
-import SearchHeader from '../../components/SearchHeader';
-import {useState} from 'react';
-import {Movie} from '../../interfaces/Movie';
 
-export default function HomeScreen({navigation}: HomeStackScreenProps) {
+export default function HomeScreen() {
   const {movies, loading} = useMovies();
-
-  /* const handleSearchBarPress = () => {
-    navigation.navigate('Search');
-  }; */
 
   const [moviesFiltered, setMoviesFiltered] = useState<Movie[]>();
   const [notFound, setNotFound] = useState<boolean>(false);

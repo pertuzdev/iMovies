@@ -1,18 +1,18 @@
 import React, {useState} from 'react';
 import {
   View,
-  Text,
   TouchableOpacity,
   TextInput,
   Image,
-  Pressable,
   GestureResponderEvent,
 } from 'react-native';
+import {useNavigation} from '@react-navigation/native';
+
+import {HomeStackNavigationProps} from '../../navigation/HomeStack.types';
 
 import {styles} from './styles';
 import {colors} from '../../styles/theme';
-import {useNavigation} from '@react-navigation/native';
-import {HomeStackNavigationProps} from '../../navigation/HomeStack.types';
+
 import Button from '../Button';
 
 type SearchBarProps = {

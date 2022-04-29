@@ -4,6 +4,7 @@ import {MovieState} from '../../interfaces/Movie';
 
 import {getPopularMovies} from '../../actions/MovieActions';
 import popularMoviesReducer from '../../reducers/popularMovieReducer';
+
 import {MovieContext} from './MovieContext';
 
 const initialState: MovieState = {

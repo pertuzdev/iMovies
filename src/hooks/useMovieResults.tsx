@@ -3,7 +3,6 @@ import {useReducer, useEffect} from 'react';
 import {MovieState} from '../interfaces/Movie';
 
 import {getMovieResults} from '../actions/MovieActions';
-
 import movieResultsReducer from '../reducers/movieResultsReducer';
 
 type Props = {

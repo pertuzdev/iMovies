@@ -1,11 +1,11 @@
 import React from 'react';
 import {View, Text, Pressable, Image} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 
 import {HomeStackNavigationProps} from '../../navigation/HomeStack.types';
 
-import {styles} from './styles';
 import {colors, textStyles} from '../../styles/theme';
-import {useNavigation} from '@react-navigation/native';
+import {styles} from './styles';
 
 type CardItemProps = {
   id: number;

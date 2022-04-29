@@ -5,6 +5,7 @@ import {styles} from './styles';
 import {textStyles} from '../../styles/theme';
 
 import {Movie} from '../../interfaces/Movie';
+
 import RecommendationItem from '../RecommendationItem';
 
 export type MoviesListProps = {

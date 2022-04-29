@@ -1,7 +1,8 @@
 import {useReducer, useEffect} from 'react';
 
-import {getRecommendations} from '../actions/MovieActions';
 import {MovieState} from '../interfaces/Movie';
+
+import {getRecommendations} from '../actions/MovieActions';
 import movieRecommendationReducer from '../reducers/movieRecommendationReducer';
 
 type Props = {

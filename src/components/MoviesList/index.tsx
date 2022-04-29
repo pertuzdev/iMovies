@@ -1,11 +1,12 @@
 import React from 'react';
 import {FlatList, Text, View} from 'react-native';
 
+import {Movie} from '../../interfaces/Movie';
+
 import {styles} from './styles';
 import {textStyles} from '../../styles/theme';
 
 import CardItem from '../CardItem';
-import {Movie} from '../../interfaces/Movie';
 
 export type MoviesListProps = {
   movies: Movie[];

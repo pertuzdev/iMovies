@@ -1,4 +1,5 @@
 import {createContext} from 'react';
+
 import {MovieState} from '../../interfaces/Movie';
 
 export type MovieContextProps = {

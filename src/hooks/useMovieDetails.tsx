@@ -1,8 +1,11 @@
 import {useReducer} from 'react';
 import {useEffect} from 'react';
-import {getMovieDetails} from '../actions/MovieActions';
+
 import {MovieDetailState} from '../interfaces/Movie';
+
+import {getMovieDetails} from '../actions/MovieActions';
 import movieDetailReducer from '../reducers/movieDetailReducer';
+
 import {useMovies} from './useMovies';
 
 type Props = {
