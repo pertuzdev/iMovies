@@ -22,10 +22,17 @@ to develop with ReactJS 17+. Learn more about here: https://reactnative.dev/docs
     npm install
     ```
 
+1.  **Setup enviroment variables**
+
+    ```shell
+    # Create a .env file with the .env.example
+    cp .env.example .env
+    ```
+
 1.  **Start developing**
 
     ```shell
-    npx react-native run-android // npx react-native run-ios to run in iOS
+    npx react-native run-android # npx react-native run-ios to run in iOS
     ```
 
 1.  **Credentials to login**
