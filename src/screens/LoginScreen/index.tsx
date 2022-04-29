@@ -33,7 +33,7 @@ const LoginScreen = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <View style={styles.logWp}>
         <Image
           source={require('../../assets/images/logo.png')}
@@ -66,7 +66,7 @@ const LoginScreen = () => {
       <View style={styles.btnWrapper}>
         <Button label="Login" onPress={handleSubmit} />
       </View>
-    </View>
+    </ScrollView>
   );
 };
 

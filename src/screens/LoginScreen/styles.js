@@ -3,9 +3,7 @@ import {colors} from '../../styles/theme';
 
 export const styles = StyleSheet.create({
   container: {
-    justifyContent: 'center',
     padding: 20,
-    paddingTop: 75,
   },
 
   formWrapper: {
