@@ -7,5 +7,5 @@ export interface UserState {
   user: User;
   token?: string | null;
   loading: boolean;
-  error: Object | null;
+  error: string;
 }

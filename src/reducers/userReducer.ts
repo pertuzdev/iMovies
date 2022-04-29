@@ -12,7 +12,7 @@ export type UserActionType =
       type: 'VALIDATE_USER_FAIL';
       payload: {
         loading: boolean;
-        error: Object;
+        error: string;
       };
     }
   | {
@@ -29,6 +29,9 @@ export type UserActionType =
     }
   | {
       type: 'LOGOUT';
+    }
+  | {
+      type: 'CLEAN_ERROR';
     };
 
 export default function userReducer(
@@ -45,7 +48,9 @@ export default function userReducer(
     case 'SET_USER':
       return {...state, user: action.payload.user};
     case 'LOGOUT':
-      return {...state, loading: false, token: null};
+      return {...state, token: null};
+    case 'CLEAN_ERROR':
+      return {...state, error: ''};
     default:
       return state;
   }

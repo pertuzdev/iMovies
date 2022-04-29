@@ -30,7 +30,7 @@ export const validateUser = ({dispatch, email, password}: LoginProps) => {
       console.log(e.response.data, 'error');
       dispatch({
         type: 'VALIDATE_USER_FAIL',
-        payload: {loading: false, error: e.response.data.e},
+        payload: {loading: false, error: e.response.data.error},
       });
     });
 };

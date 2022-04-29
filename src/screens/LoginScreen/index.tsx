@@ -12,17 +12,22 @@ import {styles} from './styles';
 
 import Button from '../../components/Button';
 import {useUser} from '../../hooks/useUser';
+import ErrorMessage from '../../components/ErrorMessage';
 
 const LoginScreen = () => {
-  const {login} = useUser();
+  const {login, userState, cleanError} = useUser();
+  const {loading, error} = userState;
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleOnChangeEmail = (text: string) => {
+    cleanError();
     setEmail(text);
   };
 
   const handleOnChangePassword = (text: string) => {
+    cleanError();
     setPassword(text);
   };
 
@@ -64,7 +69,12 @@ const LoginScreen = () => {
       </View>
 
       <View style={styles.btnWrapper}>
-        <Button label="Login" onPress={handleSubmit} />
+        <Button
+          label="Login"
+          onPress={handleSubmit}
+          disabled={!email || !password || loading}
+        />
+        {Boolean(error) && <ErrorMessage errorMessage={error} />}
       </View>
     </ScrollView>
   );

@@ -10,7 +10,7 @@ const initialState: UserState = {
   user: null,
   token: null,
   loading: false,
-  error: null,
+  error: '',
 };
 
 type UserProviderProps = {

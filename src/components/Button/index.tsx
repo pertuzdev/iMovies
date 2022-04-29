@@ -16,15 +16,31 @@ type TextButtonProps = {
   onPress?: (event: GestureResponderEvent) => void;
   style?: StyleProp<ViewStyle>;
   backgroundColor?: string;
+  disabled?: boolean;
 };
 
 export default function Button({
   label = 'label',
   style,
   onPress,
+  disabled = false,
   backgroundColor = '',
 }: TextButtonProps) {
   const fadeAnim = useRef(new Animated.Value(1)).current;
+
+  if (disabled) {
+    Animated.timing(fadeAnim, {
+      toValue: 0.7,
+      duration: 200,
+      useNativeDriver: true,
+    }).start();
+  } else {
+    Animated.timing(fadeAnim, {
+      toValue: 1,
+      duration: 500,
+      useNativeDriver: true,
+    }).start();
+  }
 
   const handlePressIn = () => {
     Animated.timing(fadeAnim, {
@@ -45,7 +61,8 @@ export default function Button({
     <TouchableWithoutFeedback
       onPressIn={handlePressIn}
       onPressOut={handlePressOut}
-      onPress={onPress}>
+      onPress={onPress}
+      disabled={disabled}>
       <Animated.View
         style={[styles(backgroundColor).container, style, {opacity: fadeAnim}]}>
         <Text style={[styles().btnText, textStyles.buttonTxt]}>{label}</Text>

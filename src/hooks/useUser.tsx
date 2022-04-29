@@ -17,5 +17,9 @@ export function useUser() {
     dispatch({type: 'LOGOUT'});
   }, [dispatch]);
 
-  return {login, logout, userState};
+  const cleanError = useCallback(() => {
+    dispatch({type: 'CLEAN_ERROR'});
+  }, [dispatch]);
+
+  return {login, logout, userState, cleanError};
 }
