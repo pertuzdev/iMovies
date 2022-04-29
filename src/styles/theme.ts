@@ -42,7 +42,7 @@ export const textStyles = {
   },
   buttonTxt: {
     fontFamily: 'Roboto-Bold',
-    fontSize: fontSizes.md,
+    fontSize: fontSizes.sm,
   },
   cardTitle: {
     fontFamily: 'Roboto-Medium',

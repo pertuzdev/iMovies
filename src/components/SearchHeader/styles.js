@@ -3,17 +3,25 @@ import {StyleSheet} from 'react-native';
 export const styles = StyleSheet.create({
   container: {
     width: '100%',
-    paddingVertical: 24,
-    flexDirection: 'row',
+    paddingBottom: 24,
     flexWrap: 'wrap',
   },
   iconContainer: {
-    flexGrow: 1,
+    width: 60,
+    height: 65,
     justifyContent: 'center',
     alignItems: 'center',
   },
   searchbar: {
-    flexGrow: 9,
-    marginRight: 16,
+    marginHorizontal: 16,
+  },
+  backBtn: {
+    flexDirection: 'row',
+  },
+  textWrapper: {
+    alignSelf: 'center',
+    fontWeight: 'bold',
+    flex: 1,
+    fontSize: 16,
   },
 });

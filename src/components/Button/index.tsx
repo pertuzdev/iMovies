@@ -5,6 +5,8 @@ import {
   TouchableWithoutFeedback,
   Text,
   GestureResponderEvent,
+  StyleProp,
+  ViewStyle,
 } from 'react-native';
 
 import {colors, textStyles} from '../../styles/theme';
@@ -12,9 +14,14 @@ import {colors, textStyles} from '../../styles/theme';
 type TextButtonProps = {
   label: string;
   onPress?: (event: GestureResponderEvent) => void;
+  style?: StyleProp<ViewStyle>;
 };
 
-export default function Button({label = 'label', onPress}: TextButtonProps) {
+export default function Button({
+  label = 'label',
+  style,
+  onPress,
+}: TextButtonProps) {
   const fadeAnim = useRef(new Animated.Value(1)).current;
 
   const handlePressIn = () => {
@@ -37,7 +44,7 @@ export default function Button({label = 'label', onPress}: TextButtonProps) {
       onPressIn={handlePressIn}
       onPressOut={handlePressOut}
       onPress={onPress}>
-      <Animated.View style={[styles.container, {opacity: fadeAnim}]}>
+      <Animated.View style={[styles.container, style, {opacity: fadeAnim}]}>
         <Text style={[styles.btnText, textStyles.buttonTxt]}>{label}</Text>
       </Animated.View>
     </TouchableWithoutFeedback>
@@ -46,11 +53,11 @@ export default function Button({label = 'label', onPress}: TextButtonProps) {
 
 const styles = StyleSheet.create({
   container: {
-    width: '80%',
+    width: '100%',
     paddingVertical: 12,
-    paddingHorizontal: 16,
+    paddingHorizontal: 12,
     backgroundColor: colors.red,
-    borderRadius: 15,
+    borderRadius: 10,
   },
   btnText: {
     textAlign: 'center',

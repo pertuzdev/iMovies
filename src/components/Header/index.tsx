@@ -9,10 +9,15 @@ import Button from '../Button';
 
 type HeaderProps = {
   style?: StyleProp<ViewStyle>;
-  onSearchBarPress: () => void;
+  onSearchBarPress?: () => void;
+  handleSearch?: (text: string) => void;
 };
 
-export default function Header({style = {}, onSearchBarPress}: HeaderProps) {
+export default function Header({
+  style = {},
+  onSearchBarPress,
+  handleSearch,
+}: HeaderProps) {
   const src = require('../../assets/images/logo.png');
   return (
     <View style={[styles.container, style]}>
@@ -30,7 +35,7 @@ export default function Header({style = {}, onSearchBarPress}: HeaderProps) {
           <Button label="Salir" />
         </View>
       </View>
-      <SearchBar style={styles.searchBar} onPress={onSearchBarPress} />
+      <SearchBar style={styles.searchBar} handleSearch={handleSearch} />
     </View>
   );
 }

@@ -2,6 +2,20 @@ import {StyleSheet} from 'react-native';
 import {colors} from '../../styles/theme';
 
 export const styles = StyleSheet.create({
+  wrapper: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  searchBarWrapper: {
+    flex: 4,
+    marginRight: 4,
+  },
+  btnWrapper: {
+    flex: 1,
+  },
+  btn: {
+    backgroundColor: colors.primaryBlue,
+  },
   txtError: {
     marginTop: '2%',
     width: '89%',

@@ -3,7 +3,7 @@ import {StackNavigationProp} from '@react-navigation/stack';
 
 export type HomeStackParamList = {
   Home: undefined;
-  Search: undefined;
+  Search: {query: string};
   Detail: {id: number; title: string};
 };
 
