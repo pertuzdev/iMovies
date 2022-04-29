@@ -7,6 +7,7 @@ import {styles} from './styles';
 import {textStyles} from '../../styles/theme';
 
 import CardItem from '../CardItem';
+import Loader from '../Loader';
 
 export type MoviesListProps = {
   movies: Movie[];
@@ -15,7 +16,7 @@ export type MoviesListProps = {
 
 export default function MoviesList({movies, loading}: MoviesListProps) {
   if (loading) {
-    return <Text>Cargando...</Text>;
+    return <Loader />;
   }
   return (
     <>

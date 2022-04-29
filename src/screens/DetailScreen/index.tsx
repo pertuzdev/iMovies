@@ -10,6 +10,7 @@ import {DetailStackScreenProps} from '../../navigation/HomeStack.types';
 import {styles} from './styles';
 
 import RecommendationList from '../../components/RecommendationList';
+import Loader from '../../components/Loader';
 
 export default function DetailScreen({route}: DetailStackScreenProps) {
   const {id} = route.params;
@@ -18,7 +19,7 @@ export default function DetailScreen({route}: DetailStackScreenProps) {
     useMovieRecommendations({id});
 
   if (loading) {
-    return <Text>Loading...</Text>;
+    return <Loader />;
   }
 
   if (!movieDetail || error) {

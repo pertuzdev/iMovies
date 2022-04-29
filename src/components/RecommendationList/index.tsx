@@ -7,6 +7,7 @@ import {textStyles} from '../../styles/theme';
 import {Movie} from '../../interfaces/Movie';
 
 import RecommendationItem from '../RecommendationItem';
+import Loader from '../Loader';
 
 export type MoviesListProps = {
   movies: Movie[];
@@ -15,7 +16,7 @@ export type MoviesListProps = {
 
 export default function RecommendationList({movies, loading}: MoviesListProps) {
   if (loading) {
-    return <Text>Cargando...</Text>;
+    return <Loader />;
   }
   return (
     <>
