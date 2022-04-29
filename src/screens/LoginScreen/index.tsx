@@ -72,6 +72,7 @@ const LoginScreen = () => {
         <Button
           label="Login"
           onPress={handleSubmit}
+          loading={loading}
           disabled={!email || !password || loading}
         />
         {Boolean(error) && <ErrorMessage errorMessage={error} />}

@@ -7,7 +7,10 @@ import {
   GestureResponderEvent,
   StyleProp,
   ViewStyle,
+  View,
 } from 'react-native';
+
+import LottieView from 'lottie-react-native';
 
 import {colors, textStyles} from '../../styles/theme';
 
@@ -17,6 +20,7 @@ type TextButtonProps = {
   style?: StyleProp<ViewStyle>;
   backgroundColor?: string;
   disabled?: boolean;
+  loading?: boolean;
 };
 
 export default function Button({
@@ -25,6 +29,7 @@ export default function Button({
   onPress,
   disabled = false,
   backgroundColor = '',
+  loading = false,
 }: TextButtonProps) {
   const fadeAnim = useRef(new Animated.Value(1)).current;
 
@@ -57,6 +62,18 @@ export default function Button({
       useNativeDriver: true,
     }).start();
   };
+
+  if (loading) {
+    return (
+      <LottieView
+        source={require('../../assets/animations/loader.json')}
+        autoPlay
+        loop
+        style={styles().loader}
+      />
+    );
+  }
+
   return (
     <TouchableWithoutFeedback
       onPressIn={handlePressIn}
@@ -83,5 +100,9 @@ const styles = (backgroundColor?: string) =>
     btnText: {
       textAlign: 'center',
       color: 'white',
+    },
+    loader: {
+      width: 60,
+      height: 60,
     },
   });
