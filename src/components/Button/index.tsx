@@ -15,12 +15,14 @@ type TextButtonProps = {
   label: string;
   onPress?: (event: GestureResponderEvent) => void;
   style?: StyleProp<ViewStyle>;
+  backgroundColor?: string;
 };
 
 export default function Button({
   label = 'label',
   style,
   onPress,
+  backgroundColor = '',
 }: TextButtonProps) {
   const fadeAnim = useRef(new Animated.Value(1)).current;
 
@@ -44,23 +46,25 @@ export default function Button({
       onPressIn={handlePressIn}
       onPressOut={handlePressOut}
       onPress={onPress}>
-      <Animated.View style={[styles.container, style, {opacity: fadeAnim}]}>
-        <Text style={[styles.btnText, textStyles.buttonTxt]}>{label}</Text>
+      <Animated.View
+        style={[styles(backgroundColor).container, style, {opacity: fadeAnim}]}>
+        <Text style={[styles().btnText, textStyles.buttonTxt]}>{label}</Text>
       </Animated.View>
     </TouchableWithoutFeedback>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    width: '100%',
-    paddingVertical: 12,
-    paddingHorizontal: 12,
-    backgroundColor: colors.red,
-    borderRadius: 10,
-  },
-  btnText: {
-    textAlign: 'center',
-    color: 'white',
-  },
-});
+const styles = (backgroundColor?: string) =>
+  StyleSheet.create({
+    container: {
+      width: '100%',
+      paddingVertical: 12,
+      paddingHorizontal: 12,
+      backgroundColor: backgroundColor || colors.primaryBlue,
+      borderRadius: 10,
+    },
+    btnText: {
+      textAlign: 'center',
+      color: 'white',
+    },
+  });

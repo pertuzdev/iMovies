@@ -86,7 +86,7 @@ export default function SearchBar({
         </View>
       </View>
       <View style={styles.btnWrapper}>
-        <Button label="Search" style={styles.btn} onPress={handlePress} />
+        <Button label="Search" onPress={handlePress} />
       </View>
     </View>
   );

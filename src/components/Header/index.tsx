@@ -2,10 +2,11 @@ import React from 'react';
 import {View, Text, Image, StyleProp, ViewStyle} from 'react-native';
 
 import {styles} from './styles';
-import {textStyles} from '../../styles/theme';
+import {colors, textStyles} from '../../styles/theme';
 
 import SearchBar from '../SearchBar';
 import Button from '../Button';
+import {useUser} from '../../hooks/useUser';
 
 type HeaderProps = {
   style?: StyleProp<ViewStyle>;
@@ -14,6 +15,13 @@ type HeaderProps = {
 
 export default function Header({style = {}, handleSearch}: HeaderProps) {
   const src = require('../../assets/images/logo.png');
+
+  const {logout} = useUser();
+
+  const handleLogout = () => {
+    logout();
+  };
+
   return (
     <View style={[styles.container, style]}>
       <View style={styles.wrapper}>
@@ -27,7 +35,11 @@ export default function Header({style = {}, handleSearch}: HeaderProps) {
           </View>
         </View>
         <View style={styles.btnContainer}>
-          <Button label="Salir" />
+          <Button
+            label="Logout"
+            backgroundColor={colors.red}
+            onPress={handleLogout}
+          />
         </View>
       </View>
       <SearchBar style={styles.searchBar} handleSearch={handleSearch} />

@@ -1,18 +1,9 @@
 import React from 'react';
 
-import {NavigationContainer} from '@react-navigation/native';
-
-import HomeStack from './src/navigation/HomeStack';
-import {MovieProvider} from './src/context/Movie/MovieProvider';
+import Providers from './src/navigation';
 
 const App = () => {
-  return (
-    <NavigationContainer>
-      <MovieProvider>
-        <HomeStack />
-      </MovieProvider>
-    </NavigationContainer>
-  );
+  return <Providers />;
 };
 
 export default App;

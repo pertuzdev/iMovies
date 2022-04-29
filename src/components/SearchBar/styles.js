@@ -13,9 +13,6 @@ export const styles = StyleSheet.create({
   btnWrapper: {
     flex: 1,
   },
-  btn: {
-    backgroundColor: colors.primaryBlue,
-  },
   txtError: {
     marginTop: '2%',
     width: '89%',
