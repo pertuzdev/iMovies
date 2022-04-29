@@ -32,6 +32,12 @@ export type UserActionType =
     }
   | {
       type: 'CLEAN_ERROR';
+    }
+  | {
+      type: 'SET_TOKEN_STORED';
+      payload: {
+        token: string;
+      };
     };
 
 export default function userReducer(
@@ -51,6 +57,8 @@ export default function userReducer(
       return {...state, token: null};
     case 'CLEAN_ERROR':
       return {...state, error: ''};
+    case 'SET_TOKEN_STORED':
+      return {...state, token: action.payload.token};
     default:
       return state;
   }
