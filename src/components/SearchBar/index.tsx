@@ -31,7 +31,6 @@ export default function SearchBar({
   focus = false,
 }: SearchBarProps) {
   const [query, setQuery] = useState<string>();
-  const [error, setError] = useState<boolean>();
 
   console.log(query, 'search');
 
@@ -40,7 +39,6 @@ export default function SearchBar({
   const handleOnChangeText = (text: string) => {
     setQuery(text);
     handleSearch && handleSearch(text);
-    if (error) setError(false);
   };
 
   const handlePress = () => {
@@ -86,7 +84,6 @@ export default function SearchBar({
             <View style={styles.vwClear} />
           )}
         </View>
-        {error && <Text style={styles.txtError}>{error}</Text>}
       </View>
       <View style={styles.btnWrapper}>
         <Button label="Search" style={styles.btn} onPress={handlePress} />
