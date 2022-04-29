@@ -25,8 +25,6 @@ const LoginScreen = () => {
   };
 
   const handleSubmit = () => {
-    console.log(email, password, 'credentials');
-    console.log(typeof login, 'loginType');
     login({email, password});
   };
 

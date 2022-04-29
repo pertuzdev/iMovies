@@ -32,8 +32,6 @@ export default function SearchBar({
 }: SearchBarProps) {
   const [query, setQuery] = useState<string>();
 
-  console.log(query, 'search');
-
   const navigation = useNavigation<HomeStackNavigationProps>();
 
   const handleOnChangeText = (text: string) => {

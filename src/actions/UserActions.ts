@@ -3,8 +3,6 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import {UserActionType} from '../reducers/userReducer';
 import {userAPI} from '../services/userAPI';
 
-import Config from 'react-native-config';
-
 type LoginProps = {
   dispatch: React.Dispatch<UserActionType>;
   email: string;
@@ -12,7 +10,6 @@ type LoginProps = {
 };
 
 export const validateUser = async ({dispatch, email, password}: LoginProps) => {
-  console.log(Config, 'Config');
   dispatch({type: 'VALIDATE_USER_REQUEST', payload: {loading: true}});
   userAPI
     .post('/login', JSON.stringify({email, password}), {
